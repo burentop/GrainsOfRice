@@ -11,7 +11,7 @@
 int main()
 {
     int square_count;
-    int current_grains = 1;
+    double current_grains = 1;
     int thou_grains = 1, mil_grains = 1, bil_grains = 1;
     vector<int> past_grains;
     
@@ -19,11 +19,11 @@ int main()
     
     for (square_count = 2; square_count <= 64; ++square_count) {
         current_grains *= 2;
-        if (current_grains >= 1000000000) {
+        if (current_grains >= 1000000000 && bil_grains == 1) {
             bil_grains = square_count;
-        } else if (current_grains >= 1000000) {
+        } else if (current_grains >= 1000000 && mil_grains == 1) {
             mil_grains = square_count;
-        } else if (current_grains >= 1000) {
+        } else if (current_grains >= 1000 && thou_grains == 1) {
             thou_grains = square_count;
         }
         past_grains.push_back(current_grains);
